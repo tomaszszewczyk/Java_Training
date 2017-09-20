@@ -1,4 +1,4 @@
-package ex2;
+package ex1_2;
 
 import java.util.*;
 import static java.lang.System.out;

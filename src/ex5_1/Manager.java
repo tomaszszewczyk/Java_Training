@@ -1,4 +1,4 @@
-package ex05;
+package ex5_1;
 
 public class Manager extends Employee {
 	private String responsibility = "Java";

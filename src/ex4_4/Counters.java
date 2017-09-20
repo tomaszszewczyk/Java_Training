@@ -1,4 +1,4 @@
-package ex04;
+package ex4_4;
 
 public class Counters {
 	public static void main(String[] args) {

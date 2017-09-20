@@ -1,4 +1,4 @@
-package ex04;
+package ex4_5;
 
 public class Primes {
 	public static void main(String[] args)

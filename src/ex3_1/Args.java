@@ -1,4 +1,4 @@
-package ex04;
+package ex3_1;
 
 public class Args {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ex04;
+package ex4_2;
 
 public class LeapYear {
 	static public void main(String[] args) {

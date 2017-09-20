@@ -1,4 +1,4 @@
-package travel_office;
+package ex3_3;
 
 import static org.junit.Assert.*;
 
