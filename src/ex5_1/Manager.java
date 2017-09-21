@@ -1,14 +1,14 @@
 package ex5_1;
 
 public class Manager extends Employee {
-	private String responsibility = "Java";
+    private String responsibility = "Java";
 
-	public Manager(String name) {
-		super(name);
-	}
+    public Manager(String name) {
+        super(name);
+    }
 
-	@Override
-	public String getInfo() {
-		return super.getInfo() + ", responsibility: " + responsibility;
-	}
+    @Override
+    public String getInfo() {
+        return super.getInfo() + ", responsibility: " + responsibility;
+    }
 }

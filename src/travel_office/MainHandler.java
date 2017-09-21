@@ -83,12 +83,16 @@ public class MainHandler implements UserInterface {
 
     @Override
     public void showCustomers() {
-        office.getCustomers().forEach(p -> {System.out.println(p);});
+        office.getCustomers().forEach(p -> {
+            System.out.println(p);
+        });
     }
 
     @Override
     public void showTrips() {
-        office.getTrips().forEach((p, s) -> {System.out.println(p + " " + s);});
+        office.getTrips().forEach((p, s) -> {
+            System.out.println(p + " " + s);
+        });
     }
 
     @Override
