@@ -31,8 +31,8 @@ public class MainHandler implements UserInterface {
         System.out.print("End date: ");
         String endString = in.next();
         Date end = new Date(endString);
+        System.out.print("Destination: ");
         String destination = in.next();
-
 
         if (kind.toUpperCase().equals("D")) {
             Trip trip;
@@ -49,22 +49,29 @@ public class MainHandler implements UserInterface {
 
     @Override
     public void assign() {
-        System.out.print("Enter trip name");
-        String trip_name = in.next();
-        System.out.print("Enter customer name");
-        String name = in.next();
-
-        Customer customer = office.findCustomerByName(name);
-        Trip trip = office.getTrip(trip_name);
-        customer.assingTrip(trip);
+        try {
+            System.out.print("Enter trip name");
+            String trip_name = in.next();
+            System.out.print("Enter customer name");
+            String name = in.next();
+            Customer customer = office.findCustomerByName(name);
+            Trip trip = office.getTrip(trip_name);
+            customer.assingTrip(trip);
+        } catch (NoSuchCustomerException exception) {
+            System.out.println(exception);
+        }
     }
 
     @Override
     public void removeCustomer() {
-        System.out.print("Enter customer name");
-        String name = in.next();
-        Customer customer = office.findCustomerByName(name);
-        office.removeCustomer(customer);
+        try {
+            System.out.print("Enter customer name");
+            String name = in.next();
+            Customer customer = office.findCustomerByName(name);
+            office.removeCustomer(customer);
+        } catch (NoSuchCustomerException exception) {
+            System.out.println(exception);
+        }
     }
 
     @Override
@@ -76,16 +83,12 @@ public class MainHandler implements UserInterface {
 
     @Override
     public void showCustomers() {
-        for (Customer customer : office.getCustomers()) {
-            System.out.println(customer);
-        }
+        office.getCustomers().forEach(p -> {System.out.println(p);});
     }
 
     @Override
     public void showTrips() {
-        for (String trip : office.getTrips().keySet()) {
-            System.out.println(trip);
-        }
+        office.getTrips().forEach((p, s) -> {System.out.println(p + " " + s);});
     }
 
     @Override

@@ -32,12 +32,12 @@ public class TravelOffice {
         trips.remove(name);
     }
 
-    public Customer findCustomerByName(String name) {
+    public Customer findCustomerByName(String name) throws NoSuchCustomerException {
         for (Customer customer : customers) {
             if (customer.getName().equals(name))
                 return customer;
         }
-        return null;
+        throw new NoSuchCustomerException();
     }
 
     public void removeCustomer(Customer customer) {
