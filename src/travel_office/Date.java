@@ -14,6 +14,13 @@ public class Date {
 		day = aDay;
 	}
 
+	public Date(String text) {
+		Date date = stringToDate(text, "-");
+		year = date.year;
+		month = date.month;
+		day = date.day;
+	}
+
 	@Override
 	public String toString() {
 		return "[" + year + "-" + month + "-" + day + "]";

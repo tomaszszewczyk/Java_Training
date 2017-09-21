@@ -1,26 +1,55 @@
 package travel_office;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class TravelOffice {
-	private Customer[] customers = new Customer[2];
-	private int customerCount = 0;
 
-	public void addCustomer(Customer newCustomer) {
-		if (customerCount == customers.length) {
-			resize();
-			addCustomer(newCustomer);
-		} else {
-			customers[customerCount] = newCustomer;
-			customerCount++;
-		}
-	}
+    private Set<Customer> customers = new HashSet<>();
+    private Map<String, Trip> trips = new HashMap<>();
+    private int customerCount = 0;
 
-	public void resize() {
-		Customer[] newCustomers = new Customer[customerCount + 2];
-		System.arraycopy(customers, 0, newCustomers, 0, customers.length);
-		customers = newCustomers;
-	}
+    public Trip getTrip(String name) {
+        return trips.get(name);
+    }
 
-	public int getCustomerCount() {
-		return customerCount;
-	}
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public Map<String, Trip> getTrips() {
+        return trips;
+    }
+
+
+    public void addTrip(String name, Trip trip) {
+        trips.put(name, trip);
+    }
+
+    public void removeTrip(String name) {
+        trips.remove(name);
+    }
+
+    public Customer findCustomerByName(String name) {
+        for (Customer customer : customers) {
+            if (customer.getName().equals(name))
+                return customer;
+        }
+        return null;
+    }
+
+    public void removeCustomer(Customer customer) {
+        customers.remove(customer);
+    }
+
+    public void addCustomer(Customer newCustomer) {
+        customers.add(newCustomer);
+        customerCount++;
+    }
+
+    public int getCustomerCount() {
+        return customerCount;
+    }
 }

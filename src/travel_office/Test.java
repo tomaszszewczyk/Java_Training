@@ -1,35 +1,54 @@
 package travel_office;
 
+import java.util.Scanner;
+
 public class Test {
-	public static void main(String[] args) {
-		TravelOffice travelOffice = new TravelOffice();
-		
-		DomesticTrip trip1 = new DomesticTrip(new Date(2016, 9, 12), new Date(2016, 10, 1),
-				"Krakow");
-		trip1.setPrice(100);
-		trip1.setOwnArrivalDiscount(20);
-		
-		AbroadTrip trip2 = new AbroadTrip(new Date(2016, 9, 12), new Date(2016, 10, 1),
-				"Honolulu");
-		trip2.setPrice(200);
-		trip2.setInsurance(50);
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        UserInterface userInterface = new MainHandler();
 
-		Address address = new Address("ul. Malinowa 15", "00-012", "Pogwizdów");
-		Customer customer = new Customer("Nowak");
-		customer.setAddress(address);		
-		
-		Address address1 = new Address("ul. Malinowa 16", "00-012", "Pogwizdów");
-		Customer customer1 = new Customer("Janusz");
-		customer1.setAddress(address1);
-		
-		customer.assingTrip(trip1);
-		customer1.assingTrip(trip2);
+        while (true) {
+            System.out.println("\nMenu");
+            System.out.println("1: Add customer");
+            System.out.println("2: Add trip");
+            System.out.println("3: Assign");
+            System.out.println("4: Remove customer");
+            System.out.println("5: Remove trip");
+            System.out.println("6: Show customers");
+            System.out.println("7: Show trips");
+            System.out.println("8: Exit");
+            System.out.print("Choose one [1-8]: ");
 
-		travelOffice.addCustomer(customer);
-		travelOffice.addCustomer(customer1);
+            String choice = in.next();
 
-		System.out.println(travelOffice.getCustomerCount());
-		System.out.println(customer);
-		System.out.println(customer1);
-	}
+            switch (choice) {
+                case "1":
+                    userInterface.addCustomer();
+                    break;
+                case "2":
+                    userInterface.addTrip();
+                    break;
+                case "3":
+                    userInterface.assign();
+                    break;
+                case "4":
+                    userInterface.removeCustomer();
+                    break;
+                case "5":
+                    userInterface.removeTrip();
+                    break;
+                case "6":
+                    userInterface.showCustomers();
+                    break;
+                case "7":
+                    userInterface.showTrips();
+                    break;
+                case "8":
+                    userInterface.exit();
+                    break;
+                default:
+                    System.out.println("Wrong input");
+            }
+        }
+    }
 }
